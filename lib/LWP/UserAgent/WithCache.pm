@@ -89,7 +89,7 @@ sub set_cache {
          last_modified => $res->last_modified,
          etag          => $res->header('Etag') ? $res->header('Etag') : undef,
          expires       => $res->expires ? $res->expires : undef,
-         as_string     => $res->as_string,
+         as_string     => $res->headers->as_string . "\n" . $res->content,
     }); 
 }
 
